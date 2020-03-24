@@ -110,7 +110,7 @@ test0, test1, test2, test3. Each replica will now be named using the hash functi
 #### Task 4 - Distributing file replicas to peers
 In the chord ring system, a peer has a predecessor and a successor. Identifiers (addresses) that are higher than the predecessor and lower or equal to the identifier of the peer are managed by the peer.
 Our replica is thus distributed using the simple rule: pred < replica <= peer. If the replica's id is less than or equal to a peer's identifier and greater than the identifier of the peer's predecessor, we assign the replica to this peer.
-You will be able to use the computeLogic function you have implemented in the Util class for this purpose. To do this correctly, you will check computeLogic(id+1, pred, peer). 
+You will be able to use the findSuccessor function you have implemented earlier for this purpose. To do this correctly, you will invoke node.findSuccessor(replica) for each replica.
 Your task is to implement the distributeReplicastoPeers() in the FileManager class.
  - Testing: Use the DHTTestKeys to test your implementation.
 
