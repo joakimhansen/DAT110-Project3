@@ -1,0 +1,20 @@
+Tests for chordDHT fails
+
+Here are some errors I spotted:
+in MutexProcess.java
+releaseLocks() don't need to increment clock here
+
+onMessageReceived() case 3:
+	If the counter is not larger you should send a reply with false. (same in Node)
+
+majorityAckknowledged()
+	you should clear the queue afterwards (same in Node)
+
+In Node
+	multicastMessage() you only need to multicast to N/2 +1 replicas (quorum)
+
+in Filemanager
+requestActiveNodesForFile()
+	checkDuplicateActiveNode() returns true if there's a duplicate 
+
+

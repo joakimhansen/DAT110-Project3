@@ -115,7 +115,7 @@ Your task is to implement the distributeReplicastoPeers() in the FileManager cla
  - Testing: Use the DHTTestKeys to test your implementation.
 
 #### Task 5 - Finding the peers/servers responsible for a file
-To look up a file in a chord system, we need to perform the same process in Task 3, where we replicate the file and find the peers holding each replica according to the rule. The system then returns the peers to the client.
+To look up a file in a chord system, we need to perform the same process in Task 4, where we replicate the file and find the peers holding each replica according to the rule. The system then returns the peers to the client.
 The major task here is to implement the requestActiveNodesForFile() method in the FileManager. Given a filename, find all the peers that hold a copy of this file
 - Testing: Use the DHTTestFilePeers to test your implementation.
 
