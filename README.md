@@ -32,7 +32,8 @@ The project is divided into six packages:
 
 - no.hvl.dat110.chordoperations: contains the ChordProtocols and JoinRing classes.
 
-- no.hvl.dat110.main: Contains chord GUI that can be used to distribute file, lookup file, and update file
+- no.hvl.dat110.main: Contains chord GUI that can be used to distribute file, lookup file, and update file. You join the ring by clicking "Ring" menu and Create/Join Ring. Note that when you are testing, the GUI process should not be part of the processes as it will correspond to having 6 active processes whereas the unit test results have been built with 5 processes (process1 - process5).
+![](assets/gui.png)
 
 - no.hvl.dat110.rpc.interfaces: contains an interface (NodeInterface) with methods that peers can invoke remotely
 
