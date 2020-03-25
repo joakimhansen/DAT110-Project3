@@ -96,16 +96,16 @@ MD5 compresses strings to 128bits, thus the address size will be 2^128 = 3402823
 Note that the peers (process1, process2, process3, process4, process5) have been given identifiers from the same address space. You will find this in the Node class: nodeID = Hash.hashOf(nodename);
  - Testing: Use the DHTTestHashFunction to test your implementation. You do not need to start all the processes to test this functionality
 
-#### Task 2 - Lookup logic and findSuccessor function
+#### Task 2 - Creating Replicas of file using the address space (2^128)
+This task requires that you replicate files using index from 0 to 3 (numReplicas = 4). You can simply use the Util.numReplicas for this purpose. That is, the index must be added to the filename to generate replicas. (e.g. for a file with name, "test", replicas will be:
+test0, test1, test2, test3. Each replica will now be named using the hash function you have implemented in Task 1. Your task here is to implement this functionality in the createReplicaFiles() method in the FileManager class.
+ - Testing: Use the DHTTestFileReplicas to test your implementation.
+ 
+#### Task 3 - Lookup logic and findSuccessor function
 The findSuccessor(id) method is a core method in the DHT system for recursively or iteratively resolving (looking up) a key from any node/peer. The first important task you must solve here before implementing the findsuccessor functions is to implement the logic to check the rule: lower <= id <= upper in the computeLogic() method in the Util class. For example, in mod 10, we check whether 9 lies between 6 and 2. It means id = 9, lower = 6 and upper = 2. (6, 2) in mod 10 = {6, 7, 8, 9, 0, 1, 2}. Your logic should return true. Further, we can check if id=6 lies between (6, 2). A correct implementation will return true. 
 You may need to read pg. 247-249 of the DS book and the original paper on chord system. The paper is on Canvas.
 After you have successfully implemented the logic, you can then implement the findSuccessor function in the ChordLookup class. To correctly implement this function, you need to maintain a finger table for each node and also implement findHighestPredecessor method that uses the finger table to find the closest predecessor peer to a key. For this project, the finger table has already been implemented.
  - Testing: Use the DHTTestComputeLogic and DHTTestFindSuccessor to test your implementations. You do not need to start all the processes to test DHTTestComputeLogic.
-
-#### Task 3 - Creating Replicas of file using the address space (2^128)
-This task requires that you replicate files using index from 0 to 3 (numReplicas = 4). You can simply use the Util.numReplicas for this purpose. That is, the index must be added to the filename to generate replicas. (e.g. for a file with name, "test", replicas will be:
-test0, test1, test2, test3. Each replica will now be named using the hash function you have implemented in Task 1. Your task here is to implement this functionality in the createReplicaFiles() method in the FileManager class.
- - Testing: Use the DHTTestFileReplicas to test your implementation.
 
 #### Task 4 - Distributing file replicas to peers
 In the chord ring system, a peer has a predecessor and a successor. Identifiers (addresses) that are higher than the predecessor and lower or equal to the identifier of the peer are managed by the peer.
@@ -140,7 +140,7 @@ Your task is to implement the distributed mutual exclusion algorithm in the Mutu
 - Testing: Use the DHTTestMutex to test your implementation.
 
 ### Unit tests
-Tasks 2 to 7 require that the 5 chord processes are started before you can test your implementations.
+Tasks 3 to 7 require that the 5 chord processes are started before you can test your implementations.
 - no.hvl.dat110.unit.tests: contains all the unit test cases for the project.
 - no.hvl.dat110.utility.FileDistributorClient: should be used to distribute files (5 files from the file folder) to the replicas in the chord ring. Note that the 5 processes must have been started before running this class. 
 - no.hvl.dat110.utility.FileFinderClient: can be used as client that requests for all server replicas holding any of the distributed files.
