@@ -93,7 +93,7 @@ public class MainWindow extends JFrame implements PropertyChangeListener {
 	 */
 	private void initialize() {
 
-		setTitle("ChordDHTPeer - Distributed/Decentralized File P2P Servers ("+ipaddress+"|"+port+")");
+		setTitle("ChordDHTPeer - Distributed/Decentralized P2P File Servers ("+ipaddress+"|"+port+")");
 		setBounds(130, 130, 550, 650);
 		setLayout(new GridBagLayout());
 		

@@ -112,6 +112,12 @@ public class Node extends UnicastRemoteObject implements NodeInterface {
 		keys.add(id);
 	}
 	
+	@Override
+	public void removeKey(BigInteger id) throws RemoteException {
+		
+		keys.remove(id);
+	}
+	
 	public List<NodeInterface> getFingerTable() {
 		return fingerTable;
 	}

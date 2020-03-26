@@ -36,6 +36,8 @@ public interface NodeInterface extends Remote {
 	
 	public void addKey(BigInteger id) throws RemoteException;
 	
+	public void removeKey(BigInteger id) throws RemoteException;
+	
 	public NodeInterface findSuccessor(BigInteger key) throws RemoteException;
 	
 	public void notify(NodeInterface pred) throws RemoteException;
