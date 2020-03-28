@@ -92,7 +92,7 @@ The tasks are divided into 7 parts
 
 #### Task 1 - Address space and size 
 
-In this task, you will implement the methods hashOf() and addressSize() in the Hash class. You must use the MD5 hash algorithm because the unit test cases class are generated using MD5 hash.
+In this task, you will implement the methods hashOf(), addressSize() and bitSize() in the Hash class. You must use the MD5 hash algorithm because the unit test cases class are generated using MD5 hash.
 MD5 compresses strings to 128bits, thus the address size will be 2^128 = 340282366920938463463374607431768211456.
 Note that the peers (process1, process2, process3, process4, process5) have been given identifiers from the same address space. You will find this in the Node class: nodeID = Hash.hashOf(nodename);
  - Testing: Use the DHTTestHashFunction to test your implementation. You do not need to start all the processes to test this functionality
