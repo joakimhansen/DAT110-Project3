@@ -39,7 +39,7 @@ public class ChordLookup {
 		
 		// if logic returns false; call findHighestPredecessor(key)
 		
-		// do highest_pred.findSuccessor(key) - This is a recursive call until logic returns true
+		// do return highest_pred.findSuccessor(key) - This is a recursive call until logic returns true
 				
 		return null;					
 	}
@@ -62,7 +62,7 @@ public class ChordLookup {
 		
 		// if logic returns true, then return the finger (means finger is the closest to key)
 		
-		return (NodeInterface) this;			
+		return (NodeInterface) node;			
 	}
 	
 	public void copyKeysFromSuccessor(NodeInterface succ) {
