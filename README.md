@@ -113,12 +113,12 @@ In the chord ring system, a peer has a predecessor and a successor. Identifiers 
 Our replica is thus distributed using the simple rule: pred < replica <= peer. If the replica's id is less than or equal to a peer's identifier and greater than the identifier of the peer's predecessor, we assign the replica to this peer.
 You will be able to use the findSuccessor function you have implemented earlier for this purpose. To do this correctly, you will invoke node.findSuccessor(replica) for each replica.
 Your task is to implement the distributeReplicastoPeers() in the FileManager class.
- - Testing: Use the DHTTestKeys to test your implementation.
+ - Testing: Start all the processes and run the DHTTestKeys to test your implementation.
 
 #### Task 5 - Finding the peers/servers responsible for a file
 To look up a file in a chord system, we need to perform the same process in Task 4, where we replicate the file and find the peers holding each replica according to the rule. The system then returns the peers to the client.
 The major task here is to implement the requestActiveNodesForFile() method in the FileManager. Given a filename, find all the peers that hold a copy of this file
-- Testing: Use the DHTTestFilePeers to test your implementation.
+- Testing: Start all the processes, run the FileDistributorClient and then run the DHTTestFilePeers to test your implementation.
 
 #### Task 6 - Remote-write protocol
 The basic idea for remote write is that each file (data item) has a primary peer that is responsible for performing update. Whenever a client wants to update a file, it has to locate the primary for this file and forward the update request to it. Therefore, only one process (peer) can perform update. The primary can then tell other peers holding a copy of this file to update.
@@ -130,7 +130,7 @@ Subsequently, to locate the primary for a file, we need to first requestActiveNo
 The task first, is to modify the distributeReplicastoPeers() to randomly assign a primary peer to a file replica.
 Next, implement findPrimaryOfItem() that returns the primary node for this item (file).
 A client request to a node to update a file using these implementations is illustrated in the unit test class (DHTTestRemote) where the client issues a request by invoking the requestRemoteWriteOperation() in the contacted node/peer.
-- Testing: Use the DHTTestRemote to test your implementation.
+- Testing: Start all the processes, run the FileDistributorClient and then run the DHTTestRemote to test your implementation.
 
 #### Task 7 -  Distributed Mutual Exclusion Algorithm
 The distributed mutual exclusion algorithm makes it possible to synchronize access to a critical section from concurrently running processes. In this scheme, multiple clients may attempt to update a single file by contacting different replicas (peers) as illustrated in the figure below.
@@ -138,7 +138,7 @@ Each contacted replica can then request a permission from the remaining replicas
 Your task is to implement the distributed mutual exclusion algorithm in the MutualExclusion class.
 ![](assets/mutex.png)
 
-- Testing: Use the DHTTestMutex to test your implementation.
+- Testing: Start all the processes, run the FileDistributorClient and then run the DHTTestMutex to test your implementation.
 
 ### Unit tests
 Tasks 3 to 7 require that the 5 chord processes are started before you can test your implementations.
